@@ -1,0 +1,14 @@
+{{ define "404" }}
+<!doctype html>
+<html>
+  <head>
+    {{ template "_head" . }}
+  </head>
+  <body>
+    <h1 class="text-2xl font-bold">404 Not Found</h1>
+    <p>Sorry, the page you are looking for is not found</p>
+    <p>Path {{ .Meta.Path }}</p>
+    <p>Server Time {{ .Meta.Time | FormatTime }}</p>
+  </body>
+</html>
+{{ end }}

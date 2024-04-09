@@ -1,0 +1,40 @@
+{{ define "index_wish" }}
+<div class="wish">
+  <div class="action">
+    <h2 class="title">{{ .Name }}</h2>
+    {{ if .URL }}
+    <a target="_blank" href="{{ .URL }}" class="link-button">🔗</a>
+    {{ end }}
+    <spacer></spacer>
+    <a href="/wish/{{ .ID }}/edit" class="edit-button">✏️</a>
+    <a href="/wish/{{ .ID }}/delete" class="delete-button">🗑️</a>
+  </div>
+
+  <!-- Description -->
+  {{ if .Description }}
+  <p class="description">{{ .Description }}</p>
+  {{ else }}
+  <p class="description">No description</p>
+  {{ end }}
+
+  <!-- Price -->
+  {{ if .Price }}
+  <p class="price">{{ .Price }}</p>
+  {{ else }}
+  <p class="price">Price Unkown</p>
+  {{ end }}
+</div>
+{{ end }} {{ define "index_wish_script" }}
+<script>
+  const priceElements = document.querySelectorAll(".wish>.price");
+  for (const element of priceElements) {
+    const price = parseFloat(element.textContent);
+    const result = price.toLocaleString(undefined, {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0,
+    });
+    element.textContent = result;
+  }
+</script>
+{{ end }}

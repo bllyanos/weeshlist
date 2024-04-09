@@ -1,0 +1,12 @@
+{{ define "navbar" }}
+<div class="navbar">
+  <a
+    href="/"
+    class='text-xl font-bold p-2 {{ if eq .Meta.Path "/"}}active{{end}}'
+    >WEE! ✨</a
+  >
+  <a href="/search" class="element">search</a>
+  <a href="/logout" class="element">logout</a>
+  <a href="/donate" class="element">donate</a>
+</div>
+{{ end }}

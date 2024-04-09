@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply tracking-wide;
+
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+}
+
+.app-btn {
+  @apply bg-gray-700 text-white;
+  @apply p-2;
+  @apply app-rounded;
+  @apply cursor-pointer;
+  @apply hover:bg-gray-800;
+  @apply duration-200;
+  @apply font-medium;
+}
+
+.app-btn-active {
+  @apply bg-gray-800;
+}
+
+.app-rounded {
+  @apply rounded-lg;
+}
+
+/* Navbar */
+.navbar {
+  @apply bg-gray-700 text-white;
+  @apply p-2 gap-1;
+  @apply drop-shadow-md;
+  @apply app-rounded;
+  @apply flex flex-row items-center;
+}
+
+.navbar>.element {
+  @apply text-sm;
+  @apply app-btn;
+}
+.navbar>.active {
+  @apply app-btn-active;
+  @apply app-rounded;
+}
+/* END Navbar */
+
+/* Index Wish */
+.wish {
+  @apply bg-gray-100;
+  @apply p-4 gap-2;
+  @apply drop-shadow-md;
+  @apply app-rounded;
+  @apply flex flex-col;
+}
+
+.wish>.action {
+  @apply flex flex-row gap-2;
+  @apply items-center;
+}
+
+.wish>.action>.title {
+  @apply text-xl;
+  @apply font-semibold;
+}
+
+.wish>.price {
+  @apply text-lg;
+  @apply font-mono;
+}
+
+.wish>.action>spacer {
+  @apply flex-grow;
+}
+
+.wish>.description {
+  @apply text-xs;
+  @apply text-gray-600;
+}
+
+/* END Index Wish */
