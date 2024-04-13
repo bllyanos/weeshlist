@@ -1,10 +1,13 @@
+<!-- index page -->
 {{ define "index"}}
 <!doctype html>
 <html data-theme="cupcake">
   <head>
+    <!---->
     {{ template "_head" . }}
   </head>
   <body>
+    <!---->
     {{ template "container" . }}
     <!---->
     {{ template "navbar" . }}
@@ -14,42 +17,35 @@
         <h2 class="text-2xl font-bold">Your Wishes</h2>
         <a href="/wishes/new" class="btn btn-primary text-sm">Make a ✨</a>
       </div>
+
+      <!-- if -->
       {{ if .Data.Wishes }}
       <div class="grid grid-cols-1 gap-4">
+        <!-- range -->
         {{ range .Data.Wishes }}
-        <a href="/wishes/{{ .ID }}">
-          <div
-            class="pointer card bg-base-300 text-primary-content p-4 flex flex-col gap-2"
-          >
-            <!-- wish name -->
-            <h2 class="text-2xl font-bold">{{ .Name }}</h2>
 
-            <!-- wish description -->
-            {{ if .Description }}
-            <p class="text-neutral text-sm">{{ .Description }}</p>
-            {{ else }}
-            <p class="text-neutral text-sm">No description</p>
-            {{ end }}
+        <!---->
+        {{ template "wish_card" . }}
 
-            <!-- wish price -->
-            {{ if .Price }}
-            <p class="price text-xl font-bold">{{ .Price }}</p>
-            {{ else }}
-            <p class="text-sm font-bold">Unknown price.</p>
-            {{ end }}
-          </div>
-        </a>
+        <!-- end range -->
         {{ end }}
       </div>
+
+      <!---->
       {{ else }}
       <h2 class="text-xl font-bold">No Wishes</h2>
+
+      <!-- end if -->
       {{ end }}
     </div>
 
     <!---->
-    {{ template "index_wish_script" . }}
+    {{ template "wish_card_script" . }}
+
     <!---->
     {{ template "container_end" . }}
   </body>
 </html>
+
+<!---->
 {{ end }}

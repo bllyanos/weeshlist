@@ -1,17 +1,54 @@
+<!-- login page -->
 {{ define "login" }}
 <!doctype html>
 <html>
   <head>
+    <!---->
     {{ template "_head" . }}
   </head>
   <body>
     <!---->
     {{ template "container" . }}
+
     <!---->
     {{ template "navbar" . }}
+
+    <div class="pt-8 px-2 flex flex-col gap-4">
+      <div class="flex flex-col justify-center items-start">
+        <h2 class="text-2xl font-bold">Login / Register</h2>
+        <small class="text-secondary-content">
+          You don't need to register, just login with your email.
+        </small>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4">
+        <form action="/auth/login/submit" method="POST">
+          <div class="w-full flex flex-col gap-4">
+            <!-- email -->
+            <label class="form-control w-full">
+              <div class="label">
+                <span class="label-text font-semibold">Email</span>
+              </div>
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                class="input input-bordered w-full"
+              />
+            </label>
+
+            <!-- submit -->
+            <button type="submit" class="btn btn-primary text-sm">
+              Send email code
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!---->
     {{ template "container_end" . }}
   </body>
 </html>
+<!---->
 {{ end }}

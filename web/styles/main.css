@@ -10,35 +10,3 @@ html {
 body {
   height: 100%;
 }
-
-.wish {
-  @apply bg-gray-100;
-  @apply p-4 gap-2;
-  @apply drop-shadow-md;
-  @apply rounded-xl;
-  @apply flex flex-col;
-}
-
-.wish > .action {
-  @apply flex flex-row gap-2;
-  @apply items-center;
-}
-
-.wish > .action > .title {
-  @apply text-xl;
-  @apply font-semibold;
-}
-
-.wish > .price {
-  @apply text-lg;
-  @apply font-mono;
-}
-
-.wish > .action > spacer {
-  @apply flex-grow;
-}
-
-.wish > .description {
-  @apply text-xs;
-  @apply text-gray-600;
-}

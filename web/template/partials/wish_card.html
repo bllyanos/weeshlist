@@ -1,0 +1,52 @@
+<!-- wish card -->
+{{ define "wish_card" }}
+<a href="/wishes/{{ .ID }}/show">
+  <div
+    class="pointer card bg-base-300 text-primary-content p-4 flex flex-col gap-2"
+  >
+    <!-- wish name -->
+    <h2 class="text-2xl font-bold">{{ .Name }}</h2>
+
+    <!-- wish description -->
+    {{ if .Description }}
+    <p class="text-neutral text-sm">{{ .Description }}</p>
+
+    <!---->
+    {{ else }}
+    <p class="text-neutral text-sm">No description</p>
+
+    <!---->
+    {{ end }}
+
+    <!-- wish price -->
+    {{ if .Price }}
+    <p class="price text-xl font-bold">{{ .Price }}</p>
+
+    <!---->
+    {{ else }}
+    <p class="text-sm font-bold">Unknown price.</p>
+
+    <!---->
+    {{ end }}
+  </div>
+</a>
+
+<!---->
+{{ end }}
+
+<!-- wish_card script: modify the price -->
+{{ define "wish_card_script" }}
+<script>
+  const priceElements = document.querySelectorAll(".price");
+  for (const element of priceElements) {
+    const price = parseFloat(element.textContent);
+    const result = price.toLocaleString(undefined, {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0,
+    });
+    element.textContent = result;
+  }
+</script>
+<!---->
+{{ end }}

@@ -27,6 +27,7 @@ func StartServer() {
 	indexHandler := handlers.NewIndexHandler(templates)
 	indexMux := multiplexer.NewMulx()
 	indexMux.HandleFunc("GET /", indexHandler.IndexHandler)
+	// / not found
 	indexMux.HandleFunc("/", indexHandler.NotFoundHandler)
 	rootMux.Handle("/", indexMux)
 
@@ -34,10 +35,20 @@ func StartServer() {
 	authHandler := handlers.NewAuthHandler(templates)
 	authMux := multiplexer.NewMulx()
 	authMux.HandleFunc("GET /auth/login", authHandler.LoginPage)
-	authMux.HandleFunc("POST /auth/login", authHandler.LoginAction)
+	authMux.HandleFunc("POST /auth/login/submit", authHandler.LoginAction)
 	authMux.HandleFunc("GET /auth/register", authHandler.RegisterPage)
 	authMux.HandleFunc("POST /auth/register", authHandler.RegisterAction)
+	// /auth/ not found
+	authMux.HandleFunc("/auth/", indexHandler.NotFoundHandler)
 	rootMux.Handle("/auth/", authMux)
+
+	// route - search
+	searchHandler := handlers.NewSearchHandler(templates)
+	searchMux := multiplexer.NewMulx()
+	searchMux.HandleFunc("GET /search", searchHandler.SearchHandler)
+	// /search not found
+	searchMux.HandleFunc("/search", indexHandler.NotFoundHandler)
+	rootMux.Handle("/search", searchMux)
 
 	fmt.Println("starting server on :8080")
 	http.ListenAndServe("0.0.0.0:8080", rootMux)
