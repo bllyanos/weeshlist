@@ -6,7 +6,7 @@
   </head>
   <body>
     {{ template "container" . }}
-    </spacer>
+    <!---->
     {{ template "navbar" . }}
 
     <div class="pt-4 px-2 flex flex-col gap-4">
@@ -15,19 +15,17 @@
         <a href="/wishes/new" class="app-btn text-sm">Make a ✨</a>
       </div>
       {{ if .Data.Wishes }}
-        <div class="list-disc grid grid-cols-1 gap-4">
-          {{ range .Data.Wishes }}
-            {{ template "index_wish" . }}
-          {{ end }}
-        </div>
+      <div class="list-disc grid grid-cols-1 gap-4">
+        {{ range .Data.Wishes }} {{ template "index_wish" . }} {{ end }}
+      </div>
       {{ else }}
-        <h2 class="text-xl font-bold">No Wishes</h2>
+      <h2 class="text-xl font-bold">No Wishes</h2>
       {{ end }}
     </div>
 
-    </spacer>
+    <!---->
     {{ template "index_wish_script" . }}
-    </spacer>
+    <!---->
     {{ template "container_end" . }}
   </body>
 </html>

@@ -20,7 +20,7 @@ func NewAuthHandler(templates *tp.Template) *AuthHandler {
 }
 
 func (h *AuthHandler) LoginPage(w http.ResponseWriter, r *http.Request) {
-	render.Page(h.templates, w, r, "login", nil)
+	render.Page(h.templates, w, r, "login", nil, nil)
 }
 
 // handle login post method
@@ -30,7 +30,7 @@ func (h *AuthHandler) LoginAction(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *AuthHandler) RegisterPage(w http.ResponseWriter, r *http.Request) {
-	render.Page(h.templates, w, r, "register", nil)
+	render.Page(h.templates, w, r, "register", nil, nil)
 }
 
 // handle register post method

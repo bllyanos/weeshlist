@@ -5,8 +5,15 @@
     class='text-xl font-bold p-2 {{ if eq .Meta.Path "/"}}active{{end}}'
     >WEE! ✨</a
   >
+  {{ if .Meta.User }}
   <a href="/search" class="element">search</a>
-  <a href="/logout" class="element">logout</a>
+  <a href="/auth/logout" class="element">logout</a>
+  {{ else }}
+  <a href="/auth/login" class="element">login</a>
+  {{ end }}
+
+  <!-- works as a spacer -->
+  <div class="flex-1"></div>
   <a href="/donate" class="element">donate</a>
 </div>
 {{ end }}

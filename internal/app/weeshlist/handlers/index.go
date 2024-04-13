@@ -37,7 +37,7 @@ func (h *IndexHandler) IndexHandler(w http.ResponseWriter, r *http.Request) {
 			{"Name": "Wish 4", "Description": "lorem ipsum bla bla bla bla bla", "Price": 400_000},
 		},
 	}
-	render.Page(h.templates, w, r, "index", data)
+	render.Page(h.templates, w, r, "index", nil, data)
 }
 
 // 404 handler

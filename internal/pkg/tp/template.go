@@ -26,11 +26,15 @@ func NewTemplate(template *template.Template, defaultMeta comm.JSON) Template {
 	}
 }
 
-func (t *Template) GetData(r *http.Request, data interface{}) TemplateData {
+func (t *Template) GetData(r *http.Request, meta interface{}, data interface{}) TemplateData {
 
 	metaClone := util.CopyMap(t.defaultMeta)
 	metaClone = assignTime(metaClone)
 	metaClone = assignPath(metaClone, r.URL.Path)
+
+	if meta != nil {
+		util.PatchMap(metaClone, meta.(comm.JSON))
+	}
 
 	return TemplateData{
 		Meta: metaClone,

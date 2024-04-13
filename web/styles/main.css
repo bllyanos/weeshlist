@@ -39,11 +39,11 @@ body {
   @apply flex flex-row items-center;
 }
 
-.navbar>.element {
+.navbar > .element {
   @apply text-sm;
   @apply app-btn;
 }
-.navbar>.active {
+.navbar > .active {
   @apply app-btn-active;
   @apply app-rounded;
 }
@@ -58,26 +58,26 @@ body {
   @apply flex flex-col;
 }
 
-.wish>.action {
+.wish > .action {
   @apply flex flex-row gap-2;
   @apply items-center;
 }
 
-.wish>.action>.title {
+.wish > .action > .title {
   @apply text-xl;
   @apply font-semibold;
 }
 
-.wish>.price {
+.wish > .price {
   @apply text-lg;
   @apply font-mono;
 }
 
-.wish>.action>spacer {
+.wish > .action > spacer {
   @apply flex-grow;
 }
 
-.wish>.description {
+.wish > .description {
   @apply text-xs;
   @apply text-gray-600;
 }
