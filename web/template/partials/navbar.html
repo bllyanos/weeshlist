@@ -1,19 +1,102 @@
 {{ define "navbar" }}
-<div class="navbar">
-  <a
-    href="/"
-    class='text-xl font-bold p-2 {{ if eq .Meta.Path "/"}}active{{end}}'
-    >WEE! ✨</a
-  >
-  {{ if .Meta.User }}
-  <a href="/search" class="element">search</a>
-  <a href="/auth/logout" class="element">logout</a>
-  {{ else }}
-  <a href="/auth/login" class="element">login</a>
-  {{ end }}
+<div class="drawer" style="z-index: 1000000">
+  <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <div class="w-full navbar bg-base-300">
+      <div class="flex-none">
+        <label
+          for="my-drawer-3"
+          aria-label="open sidebar"
+          class="btn btn-square btn-ghost"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block w-6 h-6 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </label>
+      </div>
+      <div class="flex-1 px-2 mx-2 text-xl font-bold p-2">WEE!!✨</div>
+    </div>
+  </div>
+  <div class="drawer-side">
+    <label
+      for="my-drawer-3"
+      aria-label="close sidebar"
+      class="drawer-overlay"
+    ></label>
+    <div class="menu p-4 w-80 min-h-full bg-base-200">
+      <!-- profile picture -->
+      <div>
+        {{ if .Meta.User }}
+        <div class="flex flex-col mb-4 gap-4">
+          <img
+            src="{{ .Meta.User.Avatar }}"
+            alt="avatar"
+            class="rounded-full"
+          />
+          <div class="text-lg font-bold">{{ .Meta.User.Name }}</div>
+        </div>
+        {{ else }}
+        <div class="py-4"></div>
+        {{ end }}
+        <div class="flex flex-col gap-2">
+          <li>
+            <a href="/" class='{{ if eq .Meta.Path "/" }}active{{ end }}'
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/search"
+              class='{{ if eq .Meta.Path "/search" }}active{{ end }}'
+              >Search</a
+            >
+          </li>
+          <li>
+            <a
+              href="/donate"
+              class='{{ if eq .Meta.Path "/donate" }}active{{ end }}'
+              >Donate</a
+            >
+          </li>
+          <li>
+            <a
+              href="/settings"
+              class='{{ if eq .Meta.Path "/settings" }}active{{ end }}'
+              >Settings</a
+            >
+          </li>
 
-  <!-- works as a spacer -->
-  <div class="flex-1"></div>
-  <a href="/donate" class="element">donate</a>
+          {{ if .Meta.User }}
+          <li>
+            <a
+              href="/auth/logout"
+              class='{{ if eq .Meta.Path "/auth/logout" }}active{{ end }}'
+              >Logout</a
+            >
+          </li>
+          {{ else }}
+          <li>
+            <a
+              href="/auth/login"
+              class='{{ if eq .Meta.Path "/auth/login" }}active{{ end }}'
+              >Login</a
+            >
+          </li>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {{ end }}
