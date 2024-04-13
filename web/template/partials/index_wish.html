@@ -26,7 +26,7 @@
 </div>
 {{ end }} {{ define "index_wish_script" }}
 <script>
-  const priceElements = document.querySelectorAll(".wish>.price");
+  const priceElements = document.querySelectorAll(".price");
   for (const element of priceElements) {
     const price = parseFloat(element.textContent);
     const result = price.toLocaleString(undefined, {

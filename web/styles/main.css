@@ -4,7 +4,6 @@
 
 html {
   @apply tracking-wide;
-
   height: 100vh;
 }
 
@@ -12,49 +11,11 @@ body {
   height: 100%;
 }
 
-.app-btn {
-  @apply bg-gray-700 text-white;
-  @apply p-2;
-  @apply app-rounded;
-  @apply cursor-pointer;
-  @apply hover:bg-gray-800;
-  @apply duration-200;
-  @apply font-medium;
-}
-
-.app-btn-active {
-  @apply bg-gray-800;
-}
-
-.app-rounded {
-  @apply rounded-lg;
-}
-
-/* Navbar */
-.navbar {
-  @apply bg-gray-700 text-white;
-  @apply p-2 gap-1;
-  @apply drop-shadow-md;
-  @apply app-rounded;
-  @apply flex flex-row items-center;
-}
-
-.navbar > .element {
-  @apply text-sm;
-  @apply app-btn;
-}
-.navbar > .active {
-  @apply app-btn-active;
-  @apply app-rounded;
-}
-/* END Navbar */
-
-/* Index Wish */
 .wish {
   @apply bg-gray-100;
   @apply p-4 gap-2;
   @apply drop-shadow-md;
-  @apply app-rounded;
+  @apply rounded-xl;
   @apply flex flex-col;
 }
 
@@ -81,5 +42,3 @@ body {
   @apply text-xs;
   @apply text-gray-600;
 }
-
-/* END Index Wish */

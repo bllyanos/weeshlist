@@ -32,9 +32,9 @@ func (h *IndexHandler) IndexHandler(w http.ResponseWriter, r *http.Request) {
 			{"Name": "Wish 2", "Description": "lorem ipsum bla bla bla bla bla", "Price": 200_000},
 			{"Name": "Wish 3", "Description": "lorem ipsum bla bla bla bla bla", "Price": 300_000},
 			{"Name": "Wish 4", "Description": "lorem ipsum bla bla bla bla bla", "Price": 400_000},
-			{"Name": "Wish 4", "Description": "lorem ipsum bla bla bla bla bla", "Price": 400_000},
-			{"Name": "Wish 4", "Description": "lorem ipsum bla bla bla bla bla", "Price": 400_000},
-			{"Name": "Wish 4", "Description": "lorem ipsum bla bla bla bla bla", "Price": 400_000},
+			{"Name": "Wish 5", "Price": 400_000},
+			{"Name": "Wish 6", "Description": "lorem ipsum bla bla bla bla bla", "Price": 400_000},
+			{"Name": "Wish 7", "Description": "lorem ipsum bla bla bla bla bla"},
 		},
 	}
 	render.Page(h.templates, w, r, "index", nil, data)

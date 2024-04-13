@@ -1,6 +1,6 @@
 {{ define "index"}}
 <!doctype html>
-<html>
+<html data-theme="cupcake">
   <head>
     {{ template "_head" . }}
   </head>
@@ -12,11 +12,34 @@
     <div class="pt-4 px-2 flex flex-col gap-4">
       <div class="flex flex-row justify-between items-center">
         <h2 class="text-2xl font-bold">Your Wishes</h2>
-        <a href="/wishes/new" class="app-btn text-sm">Make a ✨</a>
+        <a href="/wishes/new" class="btn btn-primary text-sm">Make a ✨</a>
       </div>
       {{ if .Data.Wishes }}
-      <div class="list-disc grid grid-cols-1 gap-4">
-        {{ range .Data.Wishes }} {{ template "index_wish" . }} {{ end }}
+      <div class="grid grid-cols-1 gap-4">
+        {{ range .Data.Wishes }}
+        <a href="/wishes/{{ .ID }}">
+          <div
+            class="pointer card bg-base-300 text-primary-content p-4 flex flex-col gap-2"
+          >
+            <!-- wish name -->
+            <h2 class="text-2xl font-bold">{{ .Name }}</h2>
+
+            <!-- wish description -->
+            {{ if .Description }}
+            <p class="text-neutral text-sm">{{ .Description }}</p>
+            {{ else }}
+            <p class="text-neutral text-sm">No description</p>
+            {{ end }}
+
+            <!-- wish price -->
+            {{ if .Price }}
+            <p class="price text-xl font-bold">{{ .Price }}</p>
+            {{ else }}
+            <p class="text-sm font-bold">Unknown price.</p>
+            {{ end }}
+          </div>
+        </a>
+        {{ end }}
       </div>
       {{ else }}
       <h2 class="text-xl font-bold">No Wishes</h2>
